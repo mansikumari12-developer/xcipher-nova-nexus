@@ -8,53 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* X Cipher Dark Theme - Crypto Aesthetic */
-    --background: 270 50% 8%;
-    --foreground: 0 0% 95%;
+    /* X Cipher Professional Blue Theme */
+    /* Dark Blue / Midnight Blue Background */
+    --background: 211 56% 11%;
+    --foreground: 0 0% 100%;
 
-    --card: 270 45% 12%;
-    --card-foreground: 0 0% 95%;
+    /* Charcoal Card Background */
+    --card: 216 33% 13%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 270 50% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 216 33% 13%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Deep Purple Primary */
-    --primary: 275 100% 25%;
+    /* Gradient Blue Primary */
+    --primary: 203 92% 56%;
     --primary-foreground: 0 0% 100%;
 
-    /* Violet Gradient */
-    --secondary: 290 85% 45%;
-    --secondary-foreground: 0 0% 100%;
+    /* Sky Blue Secondary */
+    --secondary: 199 84% 65%;
+    --secondary-foreground: 211 56% 11%;
 
-    --muted: 270 30% 20%;
-    --muted-foreground: 0 0% 65%;
+    /* Muted Charcoal */
+    --muted: 216 33% 20%;
+    --muted-foreground: 203 20% 66%;
 
-    /* Electric Blue Accent */
-    --accent: 180 100% 50%;
-    --accent-foreground: 270 50% 8%;
+    /* Sky Blue Accent */
+    --accent: 199 84% 65%;
+    --accent-foreground: 211 56% 11%;
 
-    /* Neon Pink Highlight */
-    --highlight: 328 100% 54%;
+    /* Cyan Highlight */
+    --highlight: 192 78% 59%;
     --highlight-foreground: 0 0% 100%;
 
     --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 30% 25%;
-    --input: 270 30% 20%;
-    --ring: 180 100% 50%;
+    --border: 216 33% 25%;
+    --input: 216 33% 18%;
+    --ring: 199 84% 65%;
 
     --radius: 0.75rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(275 100% 25%), hsl(290 85% 45%));
-    --gradient-hero: linear-gradient(180deg, hsl(270 50% 8%), hsl(275 100% 15%));
-    --gradient-accent: linear-gradient(90deg, hsl(180 100% 50%), hsl(328 100% 54%));
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(203 92% 56%), hsl(192 78% 59%));
+    --gradient-hero: linear-gradient(180deg, hsl(211 56% 11%), hsl(216 33% 16%));
+    --gradient-accent: linear-gradient(90deg, hsl(203 92% 56%), hsl(199 84% 65%));
+    --gradient-button: linear-gradient(135deg, #1E90FF, #4CA1AF);
     
     /* Glow Effects */
-    --glow-primary: 0 0 40px hsl(275 100% 35% / 0.5);
-    --glow-accent: 0 0 30px hsl(180 100% 50% / 0.6);
-    --glow-highlight: 0 0 30px hsl(328 100% 54% / 0.6);
+    --glow-primary: 0 0 40px hsl(203 92% 56% / 0.4);
+    --glow-accent: 0 0 30px hsl(199 84% 65% / 0.5);
+    --glow-highlight: 0 0 30px hsl(192 78% 59% / 0.5);
 
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
