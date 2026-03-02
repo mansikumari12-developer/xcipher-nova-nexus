@@ -38,12 +38,12 @@ export const BuyToken = () => {
       setIsConnected(true);
       toast({
         title: "Wallet Connected!",
-        description: "Ab aap XCIP tokens kharid sakte hain.",
+        description: "You can now purchase XCIP tokens.",
       });
     } catch (error: any) {
       toast({
         title: "Connection Failed",
-        description: error.message || "MetaMask install karein",
+        description: error.message || "Please install MetaMask",
         variant: "destructive",
       });
     }
@@ -51,11 +51,11 @@ export const BuyToken = () => {
 
   const handleBuy = async () => {
     if (!isConnected || !signer) {
-      toast({ title: "Pehle wallet connect karein", variant: "destructive" });
+      toast({ title: "Please connect your wallet first", variant: "destructive" });
       return;
     }
     if (!amount || parseFloat(amount) <= 0) {
-      toast({ title: "Valid amount enter karein", variant: "destructive" });
+      toast({ title: "Please enter a valid amount", variant: "destructive" });
       return;
     }
 
@@ -68,15 +68,20 @@ export const BuyToken = () => {
       }
       toast({
         title: "Purchase Successful! 🎉",
-        description: `Aapne ${tokens} XCIP tokens kharide ${amount} ${paymentMethod} se!`,
+        description: `You purchased ${tokens} XCIP with ${amount} ${paymentMethod}!`,
       });
       setAmount("");
       setTokens("0");
     } catch (error: any) {
       console.error("Buy error:", error);
+      const errMsg = error.data?.message || error.reason || error.message || "Transaction failed";
+      let userMsg = errMsg;
+      if (errMsg.includes("insufficient funds")) {
+        userMsg = "Insufficient funds in your wallet. Please add more " + paymentMethod + " to your wallet.";
+      }
       toast({
         title: "Transaction Failed",
-        description: error.reason || error.message || "Please try again",
+        description: userMsg,
         variant: "destructive",
       });
     } finally {
@@ -87,9 +92,9 @@ export const BuyToken = () => {
   const handleAddToMetaMask = async () => {
     try {
       await addTokenToMetaMask();
-      toast({ title: "XCIP Token Added!", description: "MetaMask mein XCIP add ho gaya." });
+      toast({ title: "XCIP Token Added!", description: "XCIP has been added to your MetaMask wallet." });
     } catch {
-      toast({ title: "Failed", description: "MetaMask mein add nahi ho saka.", variant: "destructive" });
+      toast({ title: "Failed", description: "Could not add token to MetaMask.", variant: "destructive" });
     }
   };
 
@@ -104,7 +109,7 @@ export const BuyToken = () => {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-4 gradient-text">Buy XCIP Token</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            USDT ya BNB se XCIP tokens kharidein — seedha aapke wallet mein!
+            Buy XCIP tokens with USDT or BNB — directly to your wallet!
           </p>
         </motion.div>
 
@@ -118,7 +123,7 @@ export const BuyToken = () => {
             <Card className="border-accent/50 bg-card/80 backdrop-blur-sm glow-accent">
               <CardHeader>
                 <CardTitle className="text-2xl gradient-text">Purchase Tokens</CardTitle>
-                <CardDescription>Payment method select karein aur amount enter karein</CardDescription>
+                <CardDescription>Select payment method and enter amount</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 {/* Payment Method Toggle */}
@@ -251,10 +256,10 @@ export const BuyToken = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {[
-                  { step: 1, title: "Connect Wallet", desc: "MetaMask connect karein (BSC Testnet)" },
-                  { step: 2, title: "Select Payment", desc: "USDT ya BNB choose karein" },
-                  { step: 3, title: "Enter Amount", desc: "Kitna spend karna hai enter karein" },
-                  { step: 4, title: "Confirm & Receive", desc: "Transaction confirm karein, XCIP milega!" },
+                  { step: 1, title: "Connect Wallet", desc: "Connect your MetaMask wallet (BSC Testnet)" },
+                  { step: 2, title: "Select Payment", desc: "Choose USDT or BNB" },
+                  { step: 3, title: "Enter Amount", desc: "Enter how much you want to spend" },
+                  { step: 4, title: "Confirm & Receive", desc: "Confirm the transaction and receive XCIP!" },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 text-accent flex items-center justify-center font-bold">
