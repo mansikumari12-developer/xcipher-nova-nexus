@@ -107,7 +107,7 @@ export const Hero = () => {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-6xl md:text-8xl font-bold mb-6 gradient-text"
           >
-            X Cipher
+            X Cipher (XCIP)
           </motion.h1>
 
           <motion.p
@@ -116,7 +116,7 @@ export const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Next-Generation DeFi Token Built on Binance Smart Chain
+            Next-Generation DeFi Token on BSC — Buy with USDT or BNB
           </motion.p>
 
           <motion.div
@@ -140,7 +140,7 @@ export const Hero = () => {
               <>
                 <Button variant="hero" size="xl" className="group">
                   <TrendingUp className="mr-2 h-5 w-5" />
-                  Buy XCP Token
+                  Buy XCIP Token
                 </Button>
                 <Button variant="neon" size="xl" onClick={handleAddToken}>
                   Add to MetaMask
@@ -158,9 +158,9 @@ export const Hero = () => {
               className="bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border hover:border-accent/50 hover:glow-accent transition-all duration-300"
             >
               <div className="text-4xl font-bold text-accent mb-2">
-                $<CountUp end={0.05} decimals={2} duration={2} />
+                <CountUp end={100} duration={2} />
               </div>
-              <div className="text-muted-foreground">Token Price</div>
+              <div className="text-muted-foreground">XCIP per USDT</div>
             </motion.div>
 
             <motion.div
@@ -170,7 +170,7 @@ export const Hero = () => {
               className="bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border hover:border-accent/50 hover:glow-accent transition-all duration-300"
             >
               <div className="text-4xl font-bold text-accent mb-2">
-                <CountUp end={1000} duration={2} suffix="M" />
+                <CountUp end={100} duration={2} suffix="M" />
               </div>
               <div className="text-muted-foreground">Total Supply</div>
             </motion.div>
